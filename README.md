@@ -1,0 +1,6 @@
+- install ros kinetic
+- install roboware studio
+- install ARIA
+- import repo
+- build repo
+- install dep

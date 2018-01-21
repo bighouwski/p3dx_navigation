@@ -1,0 +1,7 @@
+image: /home/campusbot/dev/roboware_ws_p3dx_navigation/src/p3dx_navigation/maps/hallway_gmapping_particles150.pgm
+resolution: 0.050000
+origin: [-12.200000, -23.400000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

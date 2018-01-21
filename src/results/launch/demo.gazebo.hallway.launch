@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+   <!-- Gazebo  -->
+  <include file="$(find p3dx_nav_gazebo)/launch/p3dx.gazebo.bagging.launch" />
+
+</launch>
