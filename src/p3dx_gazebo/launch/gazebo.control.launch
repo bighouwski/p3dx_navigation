@@ -1,0 +1,8 @@
+<launch>
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen">
+    <remap from="cmd_vel" to="p3dx/cmd_vel"/>
+  </node>
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find p3dx_gazebo)/cfg_rviz/control.rviz" />
+  
+</launch>

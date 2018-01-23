@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="rosbag" type="record" name="rosbag_record" args='record -o $(find results)/bags_gazebo/gazebo -a -x "/p3dx/front_camera/image_raw|/p3dx/front_camera/image_raw/compressedDepth(.*)|/p3dx/front_camera/image_raw/theora(.*)"' />
+</launch>

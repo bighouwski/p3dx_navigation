@@ -1,0 +1,13 @@
+<launch>
+
+  <include file="$(find p3dx_nav_gazebo)/launch/p3dx.gazebo.amcl.launch">
+    <arg name="map_file" value="/home/campusbot/dev/roboware_ws_p3dx_navigation/src/p3dx_navigation/maps/hallway_optimized_3.yaml"/>
+    <arg name="move_base_config_path" value="$(find p3dx_nav_gazebo)/cfg"/>
+  </include>
+  <param name="use_sim_time" value="true" />
+
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d /home/campusbot/dev/roboware_ws_p3dx_navigation/src/p3dx_navigation/launch/p3dx.amcl.rviz" />
+  <!-->
+  <-->
+</launch>

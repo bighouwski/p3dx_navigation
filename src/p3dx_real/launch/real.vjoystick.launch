@@ -1,0 +1,4 @@
+<launch>
+  <!-- Virtual joysticck mode -->
+  <node  name="relay_cmd_vel" pkg="topic_tools" type="relay" respawn="false" output="screen" args="/virtual_joystick/cmd_vel /rosaria/cmd_vel" />
+</launch>
