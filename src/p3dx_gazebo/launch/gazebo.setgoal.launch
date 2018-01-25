@@ -1,0 +1,13 @@
+<launch>
+    
+  <arg name="long_corridor_end" default="x: 1.9968617095, y: -12.0108918326, z: 0.0" />
+
+  <arg name="goal" default="$(arg long_corridor_end)" />
+  <!-->
+	<include file="$(find p3dx_gazebo)/launch/gazebo.bag.record.launch">
+    <arg name="bag_name" value="target_def" />
+  </include>
+  <-->
+  <node name="goal_publisher" pkg="rostopic" type="rostopic" args="pub /move_base_simple/goal geometry_msgs/PoseStamped '{header: {stamp: now, frame_id: 'map'}, pose: {position: {$(arg goal)}, orientation: {w: 1.0}}}'" />
+
+</launch>

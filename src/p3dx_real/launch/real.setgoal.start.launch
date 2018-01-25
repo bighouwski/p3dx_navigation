@@ -1,0 +1,11 @@
+<launch>
+    
+  <arg name="long_corridor_start" default="x: 57.0, y: -12.0108918326, z: 0.0" />
+
+  <arg name="goal" default="$(arg long_corridor_start)" />
+
+
+
+  <node name="goal_publisher" pkg="rostopic" type="rostopic" args="pub /move_base_simple/goal geometry_msgs/PoseStamped '{header: {stamp: now, frame_id: 'map'}, pose: {position: {$(arg goal)}, orientation: {z: 1.0}}}'" />
+
+</launch>

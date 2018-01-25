@@ -1,4 +1,12 @@
 <launch>
+  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3dx.urdf" />
+  <param name="robot_description" textfile="$(arg urdf)" />
+  <node name="rosaria" pkg="rosaria" type="RosAria" >
+    <!-- param name="sonar_frame" value="front_sonar" / -->
+  </node>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
   <!-- Virtual joysticck mode -->
   <node  name="relay_cmd_vel" pkg="topic_tools" type="relay" respawn="false" output="screen" args="/virtual_joystick/cmd_vel /rosaria/cmd_vel" />
 </launch>

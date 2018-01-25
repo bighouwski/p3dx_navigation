@@ -1,3 +1,5 @@
+controller_frequency: 10.0
+
 TrajectoryPlannerROS:
   max_vel_x: 0.8
   min_vel_x: 0.1
@@ -9,8 +11,9 @@ TrajectoryPlannerROS:
   path_distance_bias: 0.6
   goal_distance_bias: 0.6
 
-  acc_limit_th: 3.2
-  acc_limit_x: 2.5
-  acc_limit_y: 2.5
+  acc_lim_th: 3.2
+  acc_lim_x: 2.5
+  acc_lim_y: 2.5
 
   holonomic_robot: false
+  meter_scoring: true

@@ -1,11 +1,16 @@
-<?xml version="1.0"?>
 <launch>
   <arg name="map_file" default="$(find results)/maps_real/hallway_ground_truth.yaml"/>
   <arg name="robot_name" default="p3dx"/>
   <arg name="move_base_config_path" default="$(find p3dx_gazebo)/configuration/move_base" />
+  <arg name="amcl_initial_pose_x" default="57.0" />
+  <arg name="amcl_initial_pose_y" default="-12.0" />
+  <arg name="amcl_initial_pose_yaw" default="3.1415926" />
 
+  <arg name="gazebo_robot_position" default="-x 10.0 -y 0.0 -z 0.01 -Y $(arg amcl_initial_pose_yaw)" />
   <include file="$(find p3dx_gazebo)/launch/gazebo.start.launch">
     <arg name="robot_name" value="$(arg robot_name)" />
+    <arg name="robot_position" value="$(arg gazebo_robot_position)" />
+    <arg name="world" value="hallway_zigzag.world" />
   </include>
 
 
@@ -23,11 +28,20 @@
   <node pkg="amcl" type="amcl" name="amcl" output="screen">
     <remap from="scan" to="$(arg robot_name)/laser/scan"/>
     <!--param name="odom_frame_id" value="r1/base_link"/-->
+    <param name="base_frame_id" value="$(arg robot_name)/base_link"/>
+
+    <param name="initial_pose_x" value="$(arg amcl_initial_pose_x)"/>
+    <param name="initial_pose_y" value="$(arg amcl_initial_pose_y)"/>
+    <param name="initial_pose_a" value="$(arg amcl_initial_pose_yaw)"/>
+
+
     <param name="odom_frame_id" value="$(arg robot_name)/odom"/>
     <param name="odom_model_type" value="diff-corrected"/>
-    <param name="base_frame_id" value="$(arg robot_name)/base_link"/>
-    <param name="update_min_d" value="0.5"/>
-    <param name="update_min_a" value="1.0"/>
+		<param name="odom_model_type" value="diff"/>
+		<param name="odom_alpha1" value="0.02"/>
+		<param name="odom_alpha2" value="0.02"/>
+		<param name="odom_alpha3" value="0.02"/>
+		<param name="odom_alpha4" value="0.02"/>
   </node>
   <!--include file="$(find amcl)/examples/amcl_omni.launch"/-->
 
