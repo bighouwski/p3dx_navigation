@@ -1,7 +1,7 @@
 <launch>
     
 	<include file="$(find p3dx_real)/launch/real.bag.record.launch">
-    <arg name="bag_name" value="target_def" />
+    <arg name="bag_name" value="target_blocked_1" />
   </include>
     
   <arg name="long_corridor_end" default="x: 1.9968617095, y: -12.0108918326, z: 0.0" />

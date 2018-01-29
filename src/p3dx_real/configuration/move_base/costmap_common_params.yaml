@@ -1,6 +1,7 @@
-obstacle_range: 2.5
+obstacle_range: 3.0
 raytrace_range: 3.0
-inflation_radius: 0.20
+inflation_radius: 0.30 # default
+cost_scaling_factor: 5.0
 
 #---standard pioneer footprint---
 

@@ -1,9 +1,18 @@
 <launch>
 
+	<!-- Start of the corridor -->
+	<!-->
   <arg name="amcl_initial_pose_x" default="57.0" />
   <arg name="amcl_initial_pose_y" default="-12.0" />
   <arg name="amcl_initial_pose_yaw" default="3.1415926" />
+	<-->
 
+	<!-- 8.24m from end of the corridor -->
+  <arg name="amcl_initial_pose_x" default="7.82128667831" />
+  <arg name="amcl_initial_pose_y" default="-12.0" />
+  <arg name="amcl_initial_pose_yaw" default="3.1415926" />
+
+	
 	<arg name="map_file" default="$(find results)/maps_real/hallway_ground_truth.yaml"/>
   <arg name="move_base_config_path" default="$(find p3dx_real)/configuration/move_base" />
   
