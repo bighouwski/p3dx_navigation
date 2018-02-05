@@ -2,12 +2,12 @@
 
   <param name="use_sim_time" value="true" />
   <arg name="scan_topic" default="scan" />
-
   <param name="robot_description" command="$(find xacro)/xacro.py '$(find p3dx_gazebo)/xacro/p3dx/pioneer3dx.sick.xacro'" />
 
+  <!-->
   <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" />
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-
+  <-->
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
     <param name="base_frame" value="base_link"/>
     <param name="odom_frame" value="odom"/>
