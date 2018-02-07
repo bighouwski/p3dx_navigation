@@ -1,5 +1,0 @@
-<launch>
-  <arg name="bag_file" default="target_def_10.bag" />
-
-  <node pkg="rosbag" type="play" name="rosbag_play" args="-r 10 --clock $(find results)/bags_real/$(arg bag_file)" output="screen"/>
-</launch>

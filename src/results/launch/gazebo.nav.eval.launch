@@ -1,0 +1,7 @@
+<launch>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find p3dx_gazebo)/xacro/p3dx/pioneer3dx.sick.xacro'" />
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find results)/configuration/rviz/gazebo.traj.eval.rviz" />
+
+</launch>

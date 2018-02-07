@@ -10,7 +10,7 @@
   <include file="$(find p3dx_gazebo)/launch/gazebo.start.launch">
     <arg name="robot_name" value="$(arg robot_name)" />
     <arg name="robot_position" value="$(arg gazebo_robot_position)" />
-    <arg name="world" value="hallway_zigzag.world" />
+    <arg name="world" value="hallway_slalom_3m.world" />
   </include>
 
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="range_corrector" >

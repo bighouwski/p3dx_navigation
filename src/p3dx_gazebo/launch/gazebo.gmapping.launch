@@ -21,6 +21,6 @@
     <remap from="scan" to="$(arg scan_topic)"/>
   </node>
 
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find p3dx_gazebo)/cfg_rviz/mapping.rviz" />
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find p3dx_gazebo)/configuration/rviz/mapping.rviz" />
 
 </launch>
