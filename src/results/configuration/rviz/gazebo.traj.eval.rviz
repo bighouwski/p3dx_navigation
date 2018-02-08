@@ -8,7 +8,6 @@ Panels:
         - /TF1/Frames1
         - /TF1/Tree1
         - /LaserScan1
-        - /Global Map1
         - /Global Map1/Costmap1
         - /Global Map1/Planner1
         - /Local Map1
@@ -178,9 +177,9 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 0; 0; 127
-      Max Intensity: 8.40779079e-45
+      Max Intensity: 999999
       Min Color: 0; 0; 127
-      Min Intensity: -9.54188727e-06
+      Min Intensity: 0
       Name: LaserScan
       Position Transformer: XYZ
       Queue Size: 10
@@ -365,7 +364,7 @@ Visualization Manager:
           Use Fixed Frame: true
           Use rainbow: false
           Value: false
-      Enabled: false
+      Enabled: true
       Name: Local Map
     - Alpha: 1
       Arrow Length: 0.200000003
@@ -473,11 +472,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Scale: 49.1458549
+      Scale: 48.5786324
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
-      X: 43.5760765
-      Y: -10.7838459
+      X: 43.3402977
+      Y: -8.18160439
     Saved: ~
 Window Geometry:
   Displays:
