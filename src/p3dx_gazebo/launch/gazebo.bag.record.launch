@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="bag_name" default="gazebo_slalom_3m_adjusted" />
+  <arg name="bag_name" default="gazebo_maze_simple" />
   <node pkg="rosbag" type="record" name="rosbag_record" args='record -o $(find results)/bags_gazebo/$(arg bag_name) -a -x "(.*)/image_raw|(.*)/compressedDepth(.*)|(.*)/theora(.*)"' output="screen"/>
 </launch>

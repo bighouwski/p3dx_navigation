@@ -1,16 +1,16 @@
 <launch>
 
-	<!-- Start of the corridor -->
-	<!-->
-  <arg name="amcl_initial_pose_x" default="57.0" />
-  <arg name="amcl_initial_pose_y" default="-12.0" />
+	<!-- Start of the corridor, tires on 2nd line on the floor (260cm fgrom wall) -->
+  <arg name="amcl_initial_pose_x" default="56.5538" />
+  <arg name="amcl_initial_pose_y" default="-12.0507" />
   <arg name="amcl_initial_pose_yaw" default="3.1415926" />
-	<-->
 
 	<!-- 8.24m from end of the corridor -->
+	<!-->
   <arg name="amcl_initial_pose_x" default="7.82128667831" />
   <arg name="amcl_initial_pose_y" default="-12.0" />
   <arg name="amcl_initial_pose_yaw" default="3.1415926" />
+	<-->
 
 	
 	<arg name="map_file" default="$(find results)/maps_real/hallway_ground_truth.yaml"/>
@@ -81,6 +81,6 @@
 
 	</node>
 
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find p3dx_real)/configuration/rviz/amcl.rviz" />
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find p3dx_real)/configuration/rviz/navigation.monolitic.rviz" />
 	
 </launch>

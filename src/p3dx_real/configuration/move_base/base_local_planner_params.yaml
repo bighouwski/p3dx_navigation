@@ -1,4 +1,4 @@
-controller_frequency: 10.0
+controller_frequency: 5.0
 
 TrajectoryPlannerROS:
   max_vel_x: 0.8
@@ -15,7 +15,7 @@ TrajectoryPlannerROS:
   acc_lim_x: 2.5
   acc_lim_y: 2.5
 
-  xy_goal_tolerance: 0.02
+  xy_goal_tolerance: 0.10
 
   holonomic_robot: false
   meter_scoring: true

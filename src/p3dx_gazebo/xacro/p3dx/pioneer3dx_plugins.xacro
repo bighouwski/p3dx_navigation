@@ -32,7 +32,7 @@
             <odometryFrame>odom</odometryFrame>
             <odometrySource>world</odometrySource>
             <robotBaseFrame>base_link</robotBaseFrame>
-            <updateRate>10.0</updateRate>
+            <updateRate>100.0</updateRate>
         </plugin>
     </gazebo>
 

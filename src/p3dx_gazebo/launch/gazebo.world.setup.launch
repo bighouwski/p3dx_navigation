@@ -1,8 +1,9 @@
 <launch>
-  <arg name="world" default="hallway.world" />
    <!-- Gazebo  -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!-->
     <arg name="world_name" value="$(find p3dx_gazebo)/worlds/$(arg world)"/>
+    <-->
     <arg name="paused" value="false"/>
   </include>
 </launch>
