@@ -1,6 +1,6 @@
 <launch>
   <arg name="robot_name" default="p3dx"/>
-  <arg name="move_base_config_path" default="$(find p3dx_gazebo)/configuration/move_base_layered" />
+  <arg name="move_base_config_path" default="$(find p3dx_gazebo)/configuration/move_base_dwa_maze" />
 
   <!-- hallway setup -->
   <!-->
