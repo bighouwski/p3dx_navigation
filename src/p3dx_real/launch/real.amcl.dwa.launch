@@ -1,0 +1,57 @@
+<launch>
+
+	<!-- Start of the corridor, tires on 2nd line on the floor (260cm fgrom wall) -->
+  <!-->
+  <arg name="amcl_initial_pose_x" default="56.5538" />
+  <arg name="amcl_initial_pose_y" default="-12.0507" />
+  <arg name="amcl_initial_pose_yaw" default="3.1415926" />
+  <-->
+	<!-- 8.24m from end of the corridor -->
+	<!-->
+  <arg name="amcl_initial_pose_x" default="7.82128667831" />
+  <arg name="amcl_initial_pose_y" default="-12.0" />
+  <arg name="amcl_initial_pose_yaw" default="3.1415926" />
+	<-->
+
+  <arg name="amcl_initial_pose_x" default="7.78697490692" />
+  <arg name="amcl_initial_pose_y" default="0.533806085587" />
+  <arg name="amcl_initial_pose_yaw" default="0" />
+
+	<arg name="map_file" default="$(find results)/maps_real/hallway_ground_truth_room.yaml"/>
+  <arg name="move_base_config_path" default="$(find p3dx_real)/configuration/move_base_dwa_maze" />
+  
+	<include file="$(find p3dx_real)/launch/real.start.launch" />
+
+  <!-- Map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="range_corrector" >
+		<rosparam file="$(find p3dx_real)/configuration/laser_filters/laser_config.yaml" command="load" />
+  </node>
+
+	<node pkg="amcl" type="amcl" name="amcl">
+    <param name="initial_pose_x" value="$(arg amcl_initial_pose_x)"/>
+    <param name="initial_pose_y" value="$(arg amcl_initial_pose_y)"/>
+    <param name="initial_pose_a" value="$(arg amcl_initial_pose_yaw)"/>
+	</node>
+
+
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(arg move_base_config_path)/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(arg move_base_config_path)/costmap_common_params.yaml" command="load" ns="local_costmap" />   
+    <rosparam file="$(arg move_base_config_path)/local_costmap_params.yaml" command="load" />   
+    <rosparam file="$(arg move_base_config_path)/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(arg move_base_config_path)/move_base_params.yaml" command="load" />
+    <rosparam file="$(arg move_base_config_path)/global_planner_params.yaml" command="load" />
+    <rosparam file="$(arg move_base_config_path)/navfn_global_planner_params.yaml" command="load" />
+    <rosparam file="$(arg move_base_config_path)/dwa_local_planner_params.yaml" command="load" />
+
+    <remap from="cmd_vel" to="rosaria/cmd_vel"/>
+    <remap from="scan" to="scan_filtered"/>
+
+	</node>
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find p3dx_real)/configuration/rviz/navigation.rviz" />
+	
+</launch>

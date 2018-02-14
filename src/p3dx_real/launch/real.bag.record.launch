@@ -1,4 +1,4 @@
 <launch>
-  <arg name="bag_name" default="real_front_of_closed_door" />
+  <arg name="bag_name" default="real_maze" />
   <node pkg="rosbag" type="record" name="rosbag_record" args='record -o $(find results)/bags_real/$(arg bag_name) -a -x "/camera/image_raw|/camera/image_raw/compressedDepth(.*)|/camera/image_raw/theora(.*)"' />
 </launch>

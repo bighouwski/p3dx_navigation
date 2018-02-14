@@ -12,7 +12,7 @@ Panels:
         - /Local Map1/Planner1
         - /Local Map1/Trajectory Cloud1
       Splitter Ratio: 0.5
-    Tree Height: 785
+    Tree Height: 359
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -167,7 +167,7 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 168
+      Max Intensity: 177
       Min Color: 0; 0; 0
       Min Intensity: 0
       Name: LaserScan
@@ -428,11 +428,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Scale: 40.7799835
+      Scale: 59.1847267
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
-      X: 50.0992584
-      Y: -11.0485773
+      X: 9.88105011
+      Y: 1.1031673
     Saved: ~
 Window Geometry:
   Displays:

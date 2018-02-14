@@ -6,12 +6,13 @@
   </include>
   <arg name="long_corridor_end" default="x: 1.9968617095, y: -12.0108918326, z: 0.0" />
   <arg name="intermediate" default="x: 41.0, y: -12.0, z: 1.0" />
+  <arg name="end_maze" default="x: 9.69544792175, y: 6.34822940826, z: 1.0" />
   <!-->
   <-->
   <!-- 16m from wall -->
   <arg name="target_16m" default="x: 43.184, y: -12.0507, z: 0.0" />
 
-  <arg name="goal" default="$(arg target_16m)" />
+  <arg name="goal" default="$(arg end_maze)" />
 
 
 

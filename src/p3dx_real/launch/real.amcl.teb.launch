@@ -1,10 +1,11 @@
 <launch>
 
 	<!-- Start of the corridor, tires on 2nd line on the floor (260cm fgrom wall) -->
+  <!-->
   <arg name="amcl_initial_pose_x" default="56.5538" />
   <arg name="amcl_initial_pose_y" default="-12.0507" />
   <arg name="amcl_initial_pose_yaw" default="3.1415926" />
-
+  <-->
 	<!-- 8.24m from end of the corridor -->
 	<!-->
   <arg name="amcl_initial_pose_x" default="7.82128667831" />
@@ -12,8 +13,12 @@
   <arg name="amcl_initial_pose_yaw" default="3.1415926" />
 	<-->
 
-	<arg name="map_file" default="$(find results)/maps_real/hallway_ground_truth.yaml"/>
-  <arg name="move_base_config_path" default="$(find p3dx_real)/configuration/move_base_layered" />
+  <arg name="amcl_initial_pose_x" default="7.78697490692" />
+  <arg name="amcl_initial_pose_y" default="0.533806085587" />
+  <arg name="amcl_initial_pose_yaw" default="0" />
+
+	<arg name="map_file" default="$(find results)/maps_real/hallway_ground_truth_room.yaml"/>
+  <arg name="move_base_config_path" default="$(find p3dx_real)/configuration/move_base_teb" />
   
 	<include file="$(find p3dx_real)/launch/real.start.launch" />
 
@@ -34,13 +39,18 @@
 
 	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <rosparam file="$(arg move_base_config_path)/costmap_common_params.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(arg move_base_config_path)/costmap_common_params.yaml" command="load" ns="local_costmap" />   
-    <rosparam file="$(arg move_base_config_path)/local_costmap_params.yaml" command="load" />   
-    <rosparam file="$(arg move_base_config_path)/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(arg move_base_config_path)/move_base_params.yaml" command="load" />
-    <rosparam file="$(arg move_base_config_path)/global_planner_params.yaml" command="load" />
-    <rosparam file="$(arg move_base_config_path)/navfn_global_planner_params.yaml" command="load" />
-    <rosparam file="$(arg move_base_config_path)/dwa_local_planner_params.yaml" command="load" />
+  	<rosparam file="$(arg move_base_config_path)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+  	<rosparam file="$(arg move_base_config_path)/local_costmap_params.yaml" command="load" />
+  	<rosparam file="$(arg move_base_config_path)/global_costmap_params.yaml" command="load" />
+  	<rosparam file="$(arg move_base_config_path)/teb_local_planner_params.yaml" command="load" />
+
+		<param name="base_global_planner" value="global_planner/GlobalPlanner" />
+		<param name="planner_frequency" value="1.0" />
+		<param name="planner_patience" value="5.0" />
+
+		<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+		<param name="controller_frequency" value="5.0" />
+		<param name="controller_patience" value="15.0" />
 
     <remap from="cmd_vel" to="rosaria/cmd_vel"/>
     <remap from="scan" to="scan_filtered"/>
