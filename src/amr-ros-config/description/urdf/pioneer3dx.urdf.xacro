@@ -11,17 +11,21 @@
   <!--<include filename="$(find amr_robots_description)/urdf/materials.xacro"/>-->
   <xacro:include filename="$(find amr_robots_description)/urdf/pioneer3dx_wheel.xacro"/>
   
-<!-- Laser -->
-	<xacro:include filename="$(find sick_tim)/urdf/sick_tim.urdf.xacro"/>
-	<xacro:sick_tim310 name="laser" ros_topic="scan" rpy="${pi} 0 0" />
+  <!-- Laser -->
+  <xacro:include filename="$(find sick_tim)/urdf/sick_tim.urdf.xacro"/>
+  <xacro:sick_tim310 name="laser" ros_topic="scan" rpy="${pi} 0 0" />
 
-	<joint name="base_laser_joint" type="fixed">
-		<origin xyz="0.16 0 0.1" rpy="0 0 0"/>
-		<axis xzy="0 1 0"/>
-		<parent link="base_link"/>
-		<child link="laser_mount_link"/>
-	</joint>
+  <joint name="base_laser_joint" type="fixed">
+    <origin xyz="0.16 0 0.1" rpy="0 0 0"/>
+    <axis xzy="0 1 0"/>
+    <parent link="base_link"/>
+    <child link="laser_mount_link"/>
+  </joint>
 
+  <xacro:include filename="$(find p3dx_gazebo)/xacro/laser/VLP-16.urdf.xacro"/>
+  <VLP-16 parent="base_link" name="velodyne" topic="/velodyne_points">
+    <origin xyz="0 0 0.4" rpy="0 0 0" />
+  </VLP-16>
 <!-- Camera -->
 <joint name="$base_link_camera_joint" type="fixed">
       <axis xyz="0 0 1" />

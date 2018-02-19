@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<!-- Marco's notes: -->
+<!-->
+  - added Sick URDF model
+</!-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="pioneer3dx" >
+
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find p3dx_gazebo)/xacro/materials.xacro" />
+
+  <!-- Import robot -->
+  <xacro:include filename="$(find p3dx_gazebo)/xacro/p3dx/pioneer3dx_body.xacro"/>
+  <xacro:pioneer3dx_body name="chassis" parent="base_link" meshes="package://gazebo_plugins/test/multi_robot_scenario/meshes/p3dx"/>
+
+  <!-- Lasers  -->
+	<xacro:include filename="$(find sick_tim)/urdf/sick_tim.urdf.xacro"/>
+	<xacro:sick_tim310 name="laser" ros_topic="laser/scan" rpy="${pi} 0 0"/>
+  <joint name="base_laser_joint" type="fixed">
+		<!-- origin xyz="0.16 0 0.1" rpy="0 0 0"/ -->
+		<origin xyz="0.17 0 0.05" rpy="0 0 0"/>
+		<axis xzy="0 1 0"/>
+		<parent link="chassis"/>
+		<child link="laser_mount_link"/>
+	</joint>
+
+
+  <xacro:include filename="$(find p3dx_gazebo)/xacro/laser/VLP-16.urdf.xacro"/>
+  <VLP-16 parent="chassis" name="velodyne" topic="/velodyne_points" hz="10" samples="440">
+    <origin xyz="0 0 0.4" rpy="0 0 0" />
+  </VLP-16>
+  <!-- GPU Laser
+  <xacro:include filename="$(find p3dx_gazebo)/xacro/laser/hokuyo_gpu.xacro"/>
+  <xacro:laser_gpu name="front_laser" parent="chassis" xyz="0.16 0 0.1" rpy="0 0 0" meshes="package://gazebo_plugins/test/p3dx_gazebo/meshes/laser" />
+    -->
+  <xacro:include filename="$(find p3dx_gazebo)/xacro/camera/camera.xacro"/>
+  <xacro:cam name="front_camera" parent="chassis" xyz="0 0 0.5" rpy="0 0 0" />
+
+</robot>

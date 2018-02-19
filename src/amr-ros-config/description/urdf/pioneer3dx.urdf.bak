@@ -17,7 +17,7 @@
   <joint name="laser_joint" type="fixed">
     <parent link="laser_mount_link"/>
     <child link="laser"/>
-    <origin rpy="0 0 0" xyz="0 0 0.05595"/>
+    <origin rpy="3.14159265359 0 0" xyz="0 0 0.05595"/>
   </joint>
   <link name="laser">
     <visual>
@@ -86,18 +86,18 @@
   <link name="camera">
     <inertial>
       <mass value="1e-5"/>
-      <origin rpy="0 3.14159265359 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
     </inertial>
     <visual>
-      <origin rpy="0 3.14159265359 0" xyz="0 0 0"/>
+      <origin rpy="0 1.57 0" xyz="0 0 0"/>
       <geometry>
         <cylinder length="0.1" radius="0.03"/>
       </geometry>
       <material name="grey"/>
     </visual>
     <collision>
-      <origin rpy="0 3.14159265359 0" xyz="0 0 0"/>
+      <origin rpy="0 1.57 0" xyz="0 0 0"/>
       <geometry>
         <cylinder length="0.1" radius="0.03"/>
       </geometry>
