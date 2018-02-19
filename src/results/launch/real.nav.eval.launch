@@ -3,6 +3,7 @@
   <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3dx.urdf" />
   <param name="robot_description" textfile="$(arg urdf)" />
 
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find results)/configuration/rviz/amcl.target.eval.rviz" />
+  <node pkg="p3dx_navigation" type="calculate_distance_sub" name="calculate_distance" output="screen" />
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find results)/configuration/rviz/real.navigation.eval.rviz" />
 
 </launch>

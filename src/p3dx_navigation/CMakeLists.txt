@@ -226,3 +226,11 @@ add_dependencies(sonar_snapshotter ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_
 target_link_libraries(sonar_snapshotter
   ${catkin_LIBRARIES}
 )
+
+add_executable(calculate_distance_sub
+  src/calculate_distance_sub.cpp
+)
+add_dependencies(calculate_distance_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(calculate_distance_sub
+  ${catkin_LIBRARIES}
+)
